@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Гулов Мухсин — Junior Backend-разработчик</title>
+<meta name="description" content="Резюме Гулова Мухсина, junior backend-разработчика (Go), с опытом администрирования Oracle Database.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #f6f6f2;
+    --bg-row: #ececE5;
+    --ink: #1c211f;
+    --ink-soft: #565f5b;
+    --line: #d8d8d0;
+    --accent: #1b4b48;
+    --accent-soft: #e4ece9;
+    --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --max: 760px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- header ---------- */
+  header.hero {
+    padding: 72px 0 40px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .record-tag {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0 0 18px;
+  }
+
+  h1 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: clamp(32px, 5vw, 44px);
+    line-height: 1.15;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .role {
+    font-family: var(--mono);
+    font-size: 16px;
+    color: var(--accent);
+    margin: 0 0 28px;
+  }
+
+  .contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: var(--mono);
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+
+  .contact-list a { color: var(--ink-soft); text-decoration-color: var(--line); text-underline-offset: 3px; }
+  .contact-list a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+  /* ---------- sections ---------- */
+  section { padding: 44px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  .field-label {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    margin: 0 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .field-label::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+  }
+
+  .about p {
+    margin: 0;
+    max-width: 62ch;
+    font-size: 17px;
+    color: var(--ink);
+  }
+
+  /* ---------- experience: record rows ---------- */
+  .record {
+    display: grid;
+    grid-template-columns: 128px 1fr;
+    gap: 18px 28px;
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+  }
+  .record:first-child { border-top: none; padding-top: 0; }
+
+  .record-dates {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-soft);
+    padding-top: 3px;
+  }
+
+  .record-body h3 {
+    margin: 0 0 3px;
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  .record-org {
+    font-family: var(--mono);
+    font-size: 13.5px;
+    color: var(--accent);
+    margin: 0 0 12px;
+  }
+
+  .record-body ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--ink-soft);
+  }
+  .record-body li { margin: 4px 0; }
+
+  /* ---------- education / courses as key-value table ---------- */
+  .kv-table { border-top: 1px solid var(--line); }
+  .kv-row {
+    display: grid;
+    grid-template-columns: 128px 1fr;
+    gap: 18px 28px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .kv-row dt {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-soft);
+    padding-top: 2px;
+  }
+  .kv-row dd {
+    margin: 0;
+    font-size: 15.5px;
+  }
+  .kv-row dd .sub {
+    display: block;
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin-top: 2px;
+  }
+
+  /* ---------- skills: grouped tags ---------- */
+  .skill-group { margin-bottom: 20px; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-group-name {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 13px;
+    padding: 5px 10px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid transparent;
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    padding: 40px 0 72px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  footer a { color: var(--ink-soft); }
+  footer a:hover { color: var(--accent); }
+
+  @media (max-width: 560px) {
+    header.hero { padding: 48px 0 32px; }
+    section { padding: 32px 0; }
+    .record, .kv-row { grid-template-columns: 1fr; gap: 6px; }
+    .record-dates, .kv-row dt { padding-top: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="record-tag">candidate_record // backend_junior</p>
+    <h1>Гулов Мухсин</h1>
+    <p class="role">Junior Backend-разработчик · Go</p>
+    <ul class="contact-list">
+      <li><a href="mailto:gulovmuhsin121@gmail.com">gulovmuhsin121@gmail.com</a></li>
+      <li><a href="tel:+992556450990">+992 556-45-09-90</a></li>
+      <li><a href="https://www.linkedin.com/in/гулов-мухсин-b907882b0" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/GulovM" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </header>
+
+  <section class="about">
+    <p class="field-label">о себе</p>
+    <p>Больше года администрирую production Oracle Database в A1 Project и параллельно перехожу в backend-разработку: написал на Go full-stack сервис FinanceTracker — REST API с PostgreSQL, JWT-аутентификацией и React-фронтендом. Быстро разбираюсь в новых технологиях и документации, самостоятельно нахожу нужную информацию при решении задач. Ищу junior-позицию или стажировку в backend, где пригодится и опыт работы с базами данных, и код на Go.</p>
+  </section>
+
+  <section class="experience">
+    <p class="field-label">опыт работы</p>
+
+    <div class="record">
+      <div class="record-dates">авг. 2024 —<br>наст. время</div>
+      <div class="record-body">
+        <h3>Администратор баз данных Oracle</h3>
+        <p class="record-org">A1 Project</p>
+        <ul>
+          <li>Администрирование СУБД Oracle в продуктивной среде</li>
+          <li>Мониторинг производительности и настройка резервного копирования</li>
+          <li>Взаимодействие с командами разработки по вопросам требований к базам данных</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="record">
+      <div class="record-dates">июнь —<br>авг. 2024</div>
+      <div class="record-body">
+        <h3>Стажёр DevOps &amp; DBA</h3>
+        <p class="record-org">A1 Project</p>
+        <ul>
+          <li>Практический опыт администрирования Oracle Database</li>
+          <li>Работа с серверными окружениями и процессами развёртывания (deployment)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <p class="field-label">проекты</p>
+
+    <div class="record">
+      <div class="record-dates">pet-проект</div>
+      <div class="record-body">
+        <h3>FinanceTracker</h3>
+        <p class="record-org"><a href="https://github.com/GulovM/FinanceTracker" target="_blank" rel="noopener">github.com/GulovM/FinanceTracker</a></p>
+        <ul>
+          <li>Full-stack приложение для учёта личных финансов: счета, доходы и расходы, переводы между счетами, категории, бюджеты и накопительные цели</li>
+          <li>Backend на Go (Gin, pgx/v5) с PostgreSQL, JWT-аутентификацией и фоновым обработчиком регулярных платежей</li>
+          <li>Frontend на React, TypeScript и Vite; REST API без сторонних генераторов, миграции базы данных написаны вручную</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="education">
+    <p class="field-label">образование</p>
+    <dl class="kv-table">
+      <div class="kv-row">
+        <dt>2022 — 2026</dt>
+        <dd>Бакалавриат, прикладная математика и информатика
+          <span class="sub">Филиал МГУ им. М.В. Ломоносова в Душанбе, 4 курс</span>
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="courses">
+    <p class="field-label">дополнительное обучение</p>
+    <dl class="kv-table">
+      <div class="kv-row">
+        <dt>11.2025 — 01.2026</dt>
+        <dd>IBT Academy</dd>
+      </div>
+      <div class="kv-row">
+        <dt>02.2026 — 06.2026</dt>
+        <dd>TechnoHub Dushanbe</dd>
+      </div>
+      <div class="kv-row">
+        <dt>05.2026 — 07.2026</dt>
+        <dd>Humo Academy</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="skills">
+    <p class="field-label">навыки</p>
+
+    <div class="skill-group">
+      <p class="skill-group-name">языки и фреймворки</p>
+      <div class="tag-row">
+        <span class="tag">Go</span>
+        <span class="tag">Gin</span>
+        <span class="tag">gorilla/mux</span>
+        <span class="tag">REST API</span>
+        <span class="tag">JSON</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <p class="skill-group-name">данные и инфраструктура</p>
+      <div class="tag-row">
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Oracle</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Git</span>
+        <span class="tag">Linux-серверы</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <p class="skill-group-name">языки общения</p>
+      <div class="tag-row">
+        <span class="tag">Русский — свободно</span>
+        <span class="tag">Английский — Pre-Intermediate</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>gulovmuhsin121@gmail.com · +992 556-45-09-90 · <a href="https://www.linkedin.com/in/гулов-мухсин-b907882b0" target="_blank" rel="noopener">linkedin.com/in/гулов-мухсин</a> · <a href="https://github.com/GulovM" target="_blank" rel="noopener">github.com/GulovM</a></p>
+  </footer>
+</div>
+
+</body>
+</html>
